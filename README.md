@@ -192,3 +192,32 @@ Collected fees: 0.00 BTOR
 "status" : "OK"
 }
 ```
+
+#### Collateral
+
+Collateral for Bittorium masternodes is stored on special wallet accessable by the verification server. Once your masternode
+has been verified by a Bittorium team member, send 75000 BTOR to wallet address 
+```bTXQBcHwS83gk5Ucb7gS9h58yMR7yw5rDjCNP22BT9DYjRdY6yxa9SHA1UALacBPpBTvirC4VY6n1JEJAGewV3g82SctDmvTw``` and open an issue on
+this GitHub repository with hostname of your masternode and the transaction hash of the collateral payment. The official
+list of masternodes will be updated and the collateral amount should be visible on the masternode list within few hours.
+
+All masternodes whose owner have paid the full collateral amount will be eligible for inclusion on any future official wallet
+software, including mobile and web wallets, and for any exclusive rewards offered by official Bittorium team. All rewards
+will be paid only to the fee wallet address reported by RPC API of the masternode daemon.
+
+Collateral amount is non-refundable in all cases, but owner of the masternode can request removal of the masternode address
+from all lists at any moment. In case when owner requests transfer of the collateral from one hostname to another, the
+previous hostname will be replaced in all associated lists as soon as the new hostname is verified to work.
+
+### Responsibilities
+
+Bittorium team reserves right to unlist any masternode if the owner fails within reasonable time to follow and comply with
+any written or implied rules, guidelines and regulations imposed by Bittorium team in response to any complaint from a
+masternode user, or complaint or requirement of legal authority in the European Union or its member states.
+
+Any masternode that is unreachable or slow to respond, or responds with invalid or malformed data, might be temporarily
+removed from lists on websites that require access to the RPC API of the masternode. 
+
+Any software that requires specific version of masternode API is free to exclude any masternode that uses older or otherwise
+incompatible API. It is responsibility of the masternode owner to make sure the masternode runs the latest stable version of
+the masternode software and frontend. 
