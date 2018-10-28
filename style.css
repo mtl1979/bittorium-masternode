@@ -1,0 +1,15 @@
+div.logo {
+  float: left;
+}
+
+div.banner {
+  font-size: 25px;
+}
+
+div.clear-left {
+  clear: left;
+}
+
+table#info th {
+  text-align: left;
+}

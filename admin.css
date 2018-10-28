@@ -1,0 +1,8 @@
+table#transactions th {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+td.amount {
+  text-align: right;
+}

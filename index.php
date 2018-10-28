@@ -4,14 +4,15 @@ require("config.php");
 <html>
 <head>
 <title>Bittorium Masternode</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div style="float:left;"><img src="images/logo.png" width="32px"></div>
-<div style="font-size: 25px;">Bittorium Masternode</div>
-<div style="clear:left;"></div>
-<table>
-<tr><td>Daemon address:</td><td><?php echo $daemonHost . ":" . $daemonPort; ?></td></tr>
-<tr><td>Status:</td><td>
+<div class="logo"><img src="images/logo.png" width="32px"></div>
+<div class="banner">Bittorium Masternode</div>
+<div class="clear-left"></div>
+<table id="info">
+<tr><th>Daemon address:</th><td><?php echo $daemonHost . ":" . $daemonPort; ?></td></tr>
+<tr><th>Status:</th><td>
 <?php
 $curl = curl_init();
 
@@ -38,7 +39,7 @@ if ($response->fee_address != "") {
 }
 ?>
 </td></tr>
-<tr><td>Collected fees:</td><td>
+<tr><th>Collected fees:</th><td>
 <?php
 $curl = curl_init();
 
@@ -60,7 +61,7 @@ $err = curl_error($curl);
 curl_close($curl);
 $response = json_decode($response);
 if ($response->result->availableBalance) {
-  echo intval($response->result->availableBalance) / 100;
+  echo number_format(intval($response->result->availableBalance) / 100, 2);
   echo " BTOR";
 } else {
 echo "0.00 BTOR";
