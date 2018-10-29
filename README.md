@@ -201,6 +201,10 @@ has been verified by a Bittorium team member, send 75000 BTOR to wallet address
 this GitHub repository with hostname of your masternode and the transaction hash of the collateral payment. The official
 list of masternodes will be updated and the collateral amount should be visible on the masternode list within few hours.
 
+Add ```--collateral-hash transaction-hash``` to ```start.sh``` line 2 and replace ```transaction-hash``` with transaction
+hash of the collateral payment. You need to restart ```Bittoriumd``` for the change to take effect. Make sure you have
+latest version of the masternode daemon, or starting the daemon might fail after adding the parameter.
+
 All masternodes whose owner have paid the full collateral amount will be eligible for inclusion on any future official wallet
 software, including mobile and web wallets, and for any exclusive rewards offered by official Bittorium team. All rewards
 will be paid only to the fee wallet address reported by RPC API of the masternode daemon.
