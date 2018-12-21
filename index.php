@@ -34,6 +34,8 @@ curl_close($curl);
 $response = json_decode($response);
 if ($response->fee_address != "") {
   echo "OK";
+} else if (array_key_exists('status', $response)) {
+  echo "ERROR: " . $response->status;
 } else {
   echo "ERROR: " . $err;
 }
@@ -60,11 +62,11 @@ $err = curl_error($curl);
 
 curl_close($curl);
 $response = json_decode($response);
-if ($response->result->availableBalance) {
+if (array_key_exists('result', $response) && $response->result->availableBalance) {
   echo number_format(intval($response->result->availableBalance) / 100, 2);
   echo " BTOR";
 } else {
-echo "0.00 BTOR";
+  echo "0.00 BTOR";
 }
 ?>
 </td></tr>

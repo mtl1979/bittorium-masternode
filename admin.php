@@ -51,7 +51,11 @@ function walletrpc_post($method, $params = NULL) {
 
   curl_close($curl);
   $response = json_decode($response);
-  return $response->result;
+  if (array_key_exists('result', $response)) {
+    return $response->result;
+  } else {
+    return $response;
+  }
 }
 $copyright = "<div>&copy; 2018 Bittorium Project</div>";
 
