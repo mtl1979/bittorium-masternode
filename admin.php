@@ -57,17 +57,18 @@ function walletrpc_post($method, $params = NULL) {
     return $response;
   }
 }
-$copyright = "<div>&copy; 2018 Bittorium Project</div>";
+$copyright = "&copy; 2018-" . date("Y") . " Bittorium Project" ;
 
 ?>
 <html>
 <head>
 <title>Bittorium Masternode</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
-<div class="logo"><img src="images/logo.png" width="32px"></div>
+<div class="logo"><img src="images/logo.png"></div>
 <div class="banner">Bittorium Masternode</div>
 <div class="clear-left"></div>
 <?php
@@ -99,16 +100,16 @@ echo "<tr><th>Number of transactions</th><td>";
 ob_start();
 $getAddresses = walletrpc_post("getAddresses");
 $addresses = $getAddresses->addresses;
-echo "<tr><th rowspan=" . count($addresses) . " style='vertical-align:top;'>Wallet addresses</th><td>";
+echo "<tr><th rowspan=" . count($addresses) . " id='wallet'>Wallet addresses</th><td>";
 echo implode("</td></tr><tr><td>", $addresses);
 echo "</td></tr>";
 echo "</table>";
 $txs_params = Array("addresses" => $addresses, "firstBlockIndex" => 0, "blockCount" => $height);
 $txs = walletrpc_post("getTransactions", $txs_params);
 $blocks = $txs->items;
-echo "<h3>Transactions</h3>";
+echo "<h2>Transactions</h2>";
 echo "<table id='transactions'>";
-echo "<tr><th>Time</th><th>Amount</th></tr>";
+echo "<tr><th>Time</th><th class='amount'>Amount</th></tr>";
 $ntrans = 0;
 $skip = is_numeric($_POST["skip"]) ? $_POST["skip"] : 0;
 if ($skip < 0) {

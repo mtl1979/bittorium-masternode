@@ -1,8 +1,16 @@
+table#transactions {
+  min-width: 260px;
+}
+
 table#transactions th {
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
 
-td.amount {
+td.amount, th.amount {
   text-align: right;
+}
+
+th#wallet {
+  vertical-align: top;
 }

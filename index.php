@@ -4,15 +4,16 @@ require("config.php");
 <html>
 <head>
 <title>Bittorium Masternode</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="logo"><img src="images/logo.png" width="32px"></div>
+<div class="logo"><img src="images/logo.png"></div>
 <div class="banner">Bittorium Masternode</div>
 <div class="clear-left"></div>
 <table id="info">
-<tr><th>Daemon address:</th><td><?php echo $daemonHost . ":" . $daemonPort; ?></td></tr>
-<tr><th>Status:</th><td>
+<tr><th>Daemon address</th><td><?php echo $daemonHost . ":" . $daemonPort; ?></td></tr>
+<tr><th>Status</th><td>
 <?php
 $curl = curl_init();
 
@@ -41,7 +42,7 @@ if ($response->fee_address != "") {
 }
 ?>
 </td></tr>
-<tr><th>Collected fees:</th><td>
+<tr><th>Collected fees</th><td>
 <?php
 $curl = curl_init();
 
@@ -72,5 +73,7 @@ if (array_key_exists('result', $response) && $response->result->availableBalance
 </td></tr>
 </table>
 <hr />
-<div>&copy; 2018 Bittorium Project</div>
+<?php
+echo "&copy; 2018-" . date("Y") . " Bittorium Project";
+?>
 </body>
